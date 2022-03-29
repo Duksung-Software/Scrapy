@@ -1,6 +1,8 @@
 # **Scrapy 사용법**
+[영상보기](https://youtu.be/UUshcyMPmwE) 
 
 <br/>
+
 
 ## **Scrapy 설치하기**
 
