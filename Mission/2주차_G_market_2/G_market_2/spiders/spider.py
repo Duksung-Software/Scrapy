@@ -15,7 +15,6 @@ if TYPE == '8':
 
     SORTING = '판매 인기순 정렬'
 
-
 if TYPE == '1':
     
     SORTING = '판매 인기순 정렬'
@@ -81,13 +80,15 @@ class GmarketSpider(scrapy.Spider):
         #item 호출
         item = GMarket2Item()
 
+        NUM = response.xpath('//*[@id="vip-tab_detail"]/div[5]/div[1]/table[1]/tbody/tr[1]/td/text()')[0].extract()
+
         item['SORTING'] = SORTING
 
         item['Name'] = response.xpath('//*[@id="itemcase_basic"]/div/h1/text()')[0].extract()
             
         item['Price'] = response.xpath('//*[@id="itemcase_basic"]/div/p/span/strong/text()')[0].extract()
             
-        item['URL'] = url 
+        item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
 
         return item
 
@@ -95,13 +96,15 @@ class GmarketSpider(scrapy.Spider):
 
         item = GMarket2Item()
 
+        NUM = response.xpath('//*[@id="vip-tab_detail"]/div[5]/div[1]/table[1]/tbody/tr[1]/td/text()')[0].extract()
+
         item['SORTING'] = SORTING
 
         item['Name'] = response.xpath('//*[@id="itemcase_basic"]/div/h1/text()')[0].extract()
             
         item['Price'] = response.xpath('//*[@id="itemcase_basic"]/div/p/span/strong/text()')[0].extract()
             
-        item['URL'] = url 
+        item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
 
         return item
 

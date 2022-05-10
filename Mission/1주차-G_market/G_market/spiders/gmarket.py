@@ -57,13 +57,16 @@ class GmarketSpider(scrapy.Spider):
         #20만원 이상일 경우 PC 노트북임을 명시 
         if(Price >200000):
 
+            NUM = response.xpath('//*[@id="vip-tab_detail"]/div[5]/div[1]/table[1]/tbody/tr[1]/td/text()')[0].extract()
+
             item['Name'] = response.xpath('//*[@id="itemcase_basic"]/div/h1/text()')[0].extract()
             
             item['Price'] = Price_str
             
             item['Delivery_Charge'] = response.xpath('//*[@id="container"]/div[3]/div[2]/div[2]/ul/li[1]/div/div[2]/span/text()')[0].extract()
             
-            item['URL'] = url 
+            item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
+
 
         return item
 
@@ -81,13 +84,16 @@ class GmarketSpider(scrapy.Spider):
 
         if(Price >200000):
 
+            NUM = response.xpath('//*[@id="vip-tab_detail"]/div[5]/div[1]/table[1]/tbody/tr[1]/td/text()')[0].extract()
+
             item['Name'] = response.xpath('//*[@id="itemcase_basic"]/div/h1/text()')[0].extract()
             
             item['Price'] = Price_str
             
             item['Delivery_Charge'] = response.xpath('//*[@id="container"]/div[3]/div[2]/div[2]/ul/li[1]/div/div[2]/span/text()')[0].extract()
             
-            item['URL'] = url 
+            item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
+
 
         return item
 
