@@ -90,6 +90,8 @@ class GmarketSpider(scrapy.Spider):
             
         item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
 
+        print(NUM)
+
         return item
 
     def parse_page_content2(self, response):
@@ -106,6 +108,8 @@ class GmarketSpider(scrapy.Spider):
             
         item['URL'] = 'http://item.gmarket.co.kr/Item?goodscode=' + NUM
 
+        print(NUM)
+        
         return item
 
 
